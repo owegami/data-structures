@@ -33,5 +33,3 @@ var Stack = function() {
 
   return someInstance;
 };
-
-var dog = new Stack;
