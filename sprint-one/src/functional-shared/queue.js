@@ -4,7 +4,7 @@ var Queue = function() {
   var someInstance = {};
   someInstance.storage = {};
 
-  var lengthCounter = 0;
+  someInstance.storage.lengthCounter = 0;
 
   extend(someInstance, queueMethods);
 
@@ -20,22 +20,22 @@ var extend = function(obj, objProps) {
 
 var queueMethods = {
   enqueue: function(value) {
-    this.storage[lengthCounter] = value;
-    lengthCounter++;
+    this.storage[this.storage.lengthCounter] = value;
+    this.storage.lengthCounter++;
   },
 
   dequeue: function() {
     var dequeuedVal = this.storage[0];
     // console.log('dequeuedVal:', dequeuedVal, 'lengthCounter:', lengthCounter, 'this:', this);
-    for (var i = 0; i < lengthCounter; i++) {
+    for (var i = 0; i < this.storage.lengthCounter; i++) {
       this.storage[i] = this.storage[i + 1];
     }
-    lengthCounter > 0 ? lengthCounter-- : lengthCounter = 0;
+    this.storage.lengthCounter > 0 ? this.storage.lengthCounter-- : this.storage.lengthCounter = 0;
     // console.log('dequeuedVal:', dequeuedVal, 'lengthCounter:', lengthCounter);
     return dequeuedVal;
   },
   size: function() {
-    return lengthCounter;
+    return this.storage.lengthCounter;
   }
 };
 
