@@ -26,12 +26,12 @@ var queueMethods = {
 
   dequeue: function() {
     var dequeuedVal = this.storage[0];
-    console.log('dequeuedVal:', dequeuedVal, 'lengthCounter:', lengthCounter, 'this:', this);
+    // console.log('dequeuedVal:', dequeuedVal, 'lengthCounter:', lengthCounter, 'this:', this);
     for (var i = 0; i < lengthCounter; i++) {
       this.storage[i] = this.storage[i + 1];
     }
     lengthCounter > 0 ? lengthCounter-- : lengthCounter = 0;
-    console.log('dequeuedVal:', dequeuedVal, 'lengthCounter:', lengthCounter);
+    // console.log('dequeuedVal:', dequeuedVal, 'lengthCounter:', lengthCounter);
     return dequeuedVal;
   },
   size: function() {

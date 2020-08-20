@@ -34,11 +34,11 @@ var stackMethods = {
     // lengthCounter > 0 ? lengthCounter-- : lengthCounter = 0;
     // return poppedVal;
     var index = this.storage.lengthCounter - 1;
-    console.log('index: ', index);
+    // console.log('index: ', index);
     var poppedVal = this.storage[index];
-    console.log(this.storage);
-    console.log('this storage index: ', this.storage[index]);
-    console.log('poppedValNEW:', poppedVal);
+    // console.log(this.storage);
+    // console.log('this storage index: ', this.storage[index]);
+    // console.log('poppedValNEW:', poppedVal);
     delete this.storage[index];
     this.storage.lengthCounter > 0 ? this.storage.lengthCounter-- : this.storage.lengthCounter = 0;
     return poppedVal;
