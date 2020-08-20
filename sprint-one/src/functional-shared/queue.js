@@ -4,7 +4,7 @@ var Queue = function() {
   var someInstance = {};
   someInstance.storage = {};
 
-  lengthCounter = 0;
+  var lengthCounter = 0;
 
   extend(someInstance, queueMethods);
 
