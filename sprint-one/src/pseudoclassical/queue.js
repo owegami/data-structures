@@ -1,6 +1,6 @@
 var Queue = function() {
 
-  this.storage = Object;
+  this.storage = {};
   this.lengthCounter = 0;
 };
 
