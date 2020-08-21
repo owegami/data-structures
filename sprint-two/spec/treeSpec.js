@@ -2,7 +2,9 @@ describe('tree', function() {
   var tree;
 
   beforeEach(function() {
-    tree = Tree();
+    var firstVal = 'Parent Node';
+    tree = new Tree(firstVal);
+    // tree = Tree();
   });
 
   it('should have methods named "addChild" and "contains", and a property named "value"', function() {

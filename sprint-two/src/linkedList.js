@@ -16,7 +16,7 @@ var LinkedList = function() {
       list[list.lengthCount - 1].next = list.lengthCount;
       list.tail = list[list.lengthCount];
       list.lengthCount++;
-      console.log(list);
+      // console.log(list);
     }
   };
 

@@ -6,6 +6,9 @@ var Graph = function() {
 
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node) {
+  // I believe that we should be able to create a node & have it floating
+  // this kinda be in space, no connection needed
+  // is a node an object, a value, etc
 };
 
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
