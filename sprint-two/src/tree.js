@@ -20,27 +20,32 @@ Tree.prototype.contains = function(target) {
 //he are looking for a value so we will check against .value
   // this = the whole Tree
 
+  let isFound = false;
+
   var checker = function(node) {
 
-    if (this.value === target) {
-      return true;
-    }
-    if (this.children.length > 0) {
-      for (var i = 0; i < this.children.length; i++) {
-        checker(this.children[i]);
+    if (node.value === target) {
+      isFound = true;
+    } else if (node.children.length > 0 && !isFound) {
+      for (var i = 0; i < node.children.length; i++) {
+        checker(node.children[i]);
       }
     }
-
-    return false;
+    return isFound;
   };
+
   var firstNode = this;
-  checker(firstNode);
+  return checker(firstNode);
 
 };
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ * addChild O(1)
+ * contains O(N), worst case its not there, it checks ALL the nodes
+ *
  */
+
 
 //  cardboard = {
 //    value: 2,
