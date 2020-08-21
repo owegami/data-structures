@@ -33,7 +33,7 @@ var LinkedList = function() {
   list.contains = function(target) {
     // should return a boolean
     for (var i = 0; i < list.lengthCount; i++) {
-      if (list[i].value === target) {
+      if (list[i] && list[i].value === target) {
         return true;
       }
     }
