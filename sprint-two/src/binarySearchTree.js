@@ -7,7 +7,7 @@ var BinarySearchTree = function(value) {
   this.right = null;
 
 
-  console.log(this.value);
+  // console.log(this.value);
 };
 
 BinarySearchTree.prototype.insert = function(value, node) {
@@ -17,10 +17,10 @@ BinarySearchTree.prototype.insert = function(value, node) {
   node === undefined ? node = this : node = node;
   var nodeVal = node.value;
 
-  console.log(this, value < nodeVal, value, node.right, node.left);
+  // console.log(this, value < nodeVal, value, node.right, node.left);
   if (value > nodeVal) {
     if (node.right) {
-      console.log('hello');
+      // console.log('hello');
       this.insert(value, node.right);
 
     } else {
@@ -34,37 +34,30 @@ BinarySearchTree.prototype.insert = function(value, node) {
     }
   }
 
-  // var parentNode = this.storage
-  // var insertRecurse = function(parentNode) {
-
-  //if (value < parentNode.value){
-  //if (parentNode.left === null) {
-  // parentNode.left = new BinarySearchTree(value)
-  // } else {
-  // insertRecurse(parentNode.left);
-  // } else if (value > parentNode.value) {
-  // if (parentNode.right === null) {
-  // parentNode.right = new BinarySearchTree(value)
-  //} else {
-  // insertRecurse(parentNode.value)
-  // }
-  // }
-
 };
 
 BinarySearchTree.prototype.contains = function(value) {
   // assumes it's not contained unless otherwise noted
   var isContained = false;
-  var nodeToCheck = this;
+  var node = this;
+  var nodeToCheck = node.value;
 
   var containsRecurse = function (nodeToCheck) {
-    if (nodeToCheck.value === value) {
+    if (nodeToCheck === value) {
       isContained = true;
-    } else if (nodeToCheck.value > value) {
-      nodeToCheck = nodeToCheck.left; //this isn't exactly right
+    } else if (nodeToCheck > value) {
+      node = node.left;
+      if (!node) {
+        return false;
+      }
+      nodeToCheck = node.value;
       containsRecurse(nodeToCheck);
-    } else if (nodeToCheck.value < value) {
-      nodeToCheck = nodeToCheck.left; //this isn't exactly right
+    } else if (nodeToCheck < value) {
+      node = node.right;
+      if (!node) {
+        return false;
+      }
+      nodeToCheck = node.value;
       containsRecurse(nodeToCheck);
     }
   };
@@ -74,7 +67,30 @@ BinarySearchTree.prototype.contains = function(value) {
   return isContained;
 };
 
-BinarySearchTree.prototype.depthFirstLog = function() {
+BinarySearchTree.prototype.depthFirstLog = function(func, node) {
+
+  node === undefined ? node = this : node = node;
+
+  //get func and apply func to the node
+  var result = func(node.value);
+  // if node.left or node.right has anything in it, we recurse through those branches
+  for (var key in node) {
+    if (key === 'left' && node.left) {
+      this.depthFirstLog(func, node.left);
+    }
+    if (key === 'right' && node.right) {
+      this.depthFirstLog(func, node.right);
+    }
+  }
+  // if (node.left) {
+  //   console.log(node.value);
+  //   this.depthFirstLog(func, node.left);
+  // }
+  // if (node.right) {
+  //   console.log(node.value);
+  //   this.depthFirstLog(func, node.right);
+  // }
+  return result;
 
 };
 
