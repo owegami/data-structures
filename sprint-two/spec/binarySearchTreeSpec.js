@@ -39,3 +39,36 @@ describe('binarySearchTree', function() {
   });
 
 });
+
+/* BST = {
+  storage: {
+      value: 5,
+      left: {
+        storage: {
+          value: 7,
+          left: null,
+          right: {
+            storage: {
+              value: 6,
+              left: null,
+              right: null
+            }
+          }
+        }
+      },
+      right: {
+        storage: {
+          value: 2,
+          left: {
+            storage: {
+              value: 3,
+              left: null,
+              right: null
+            }
+          },
+          right: null
+        }
+      },
+  }
+}
+*/
