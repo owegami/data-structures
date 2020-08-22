@@ -13,7 +13,6 @@ Tree.prototype.addChild = function(value) {
   // var node = {value: value, children: []};
   // we don't want to add a new Tree, only add a child
   this.children.push(node);
-  console.log('Tree with: ', value, this);
 };
 
 Tree.prototype.contains = function(target) {

@@ -14,13 +14,13 @@ describe('hashTable', function() {
   });
 
   it('should store values that were inserted', function() {
-    hashTable.insert('Steven', 'Seagal');
-    expect(hashTable.retrieve('Steven')).to.equal('Seagal');
+    hashTable.insert('Steven', 'Carell');
+    expect(hashTable.retrieve('Steven')).to.equal('Carell');
   });
 
   it('should not contain values that were not inserted', function() {
     hashTable.insert('Steven', 'Spielberg');
-    expect(hashTable.retrieve('Steven')).not.to.equal('Seagal');
+    expect(hashTable.retrieve('Steven')).not.to.equal('Carell');
   });
 
   it('should overwrite values that have the same key', function() {
